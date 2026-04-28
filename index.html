@@ -6,6 +6,8 @@
   <meta name="description" content="MyFarmFresh — naturally dried fruits, vegetables, and farm-fresh produce sourced from Kenyan farms." />
   <title>MyFarmFresh — Farm Fresh, Naturally Dried</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all/min/css"/>
+
   <style>
     /* ── Page-specific styles ── */
 
@@ -172,7 +174,43 @@
     .step-text h4 { color: var(--white); font-family: var(--font-body); font-weight: 600; margin-bottom: 4px; }
     .step-text p  { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
 
-    /* Testimonials */
+    /* BENEFITS */
+    .benefits { background: var(--cream); }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .benefits-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testi-stars { color: var(--amber); font-size: 0.85rem; margin-bottom: 10px; }
+    .benefits-quote { font-size: 0.9rem; color: var(--text-mid); font-style: italic; margin-bottom: 14px; line-height: 1.65; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .benefits-avatar {
+      width: 36px; height: 36px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .benefits-name  { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+    .benefits-role  { font-size: 0.75rem; color: var(--text-light); }
+
+
+    /*testimonials*/
     .testimonials { background: var(--cream); }
 
     .testi-grid {
@@ -226,6 +264,7 @@
       .categories-grid { grid-template-columns: repeat(2, 1fr); }
       .process-steps   { grid-template-columns: repeat(2, 1fr); }
       .testi-grid      { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid      { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (min-width: 900px) {
@@ -236,9 +275,11 @@
         align-items: center;
       }
       .hero-image { height: 340px; }
-      .categories-grid { grid-template-columns: repeat(4, 1fr); }
+      .categories-grid { grid-template-columns: repeat(3, 1fr); }
       .process-steps   { grid-template-columns: repeat(4, 1fr); }
       .testi-grid      { grid-template-columns: repeat(3, 1fr); }
+      .benefits-grid      { grid-template-columns: repeat(4, 1fr); }
+
     }
   </style>
 </head>
@@ -353,9 +394,9 @@
           </div>
         </div>
 
-        <div class="cat-card">
+        <!--<div class="cat-card">
           <div class="cat-img local">
-            <!-- <img src="images/local-veg.jpg" alt="Local Kenyan vegetables"> -->
+            <!-- <img src="images/local-veg.jpg" alt="Local Kenyan vegetables"> 
             Local Kenyan veg photo
           </div>
           <div class="cat-body">
@@ -363,7 +404,7 @@
             <p>Managu, terere, mrenda, saga and other traditional indigenous vegetables.</p>
             <a href="products.html#local-veg" class="btn btn-outline" style="padding:9px 20px; font-size:0.82rem;">Learn more</a>
           </div>
-        </div>
+        </div>-->
 
         <div class="cat-card">
           <div class="cat-img fresh">
@@ -420,7 +461,8 @@
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIALS ═══ -->
+  
+  <!-- ═══ TESTIMONIALS ═══ 
   <section class="testimonials">
     <div class="container">
       <span class="section-label">Customer love</span>
@@ -464,8 +506,50 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> 
+-->
+  <!-- ═══ BENEFITS ═══ -->
+<section class="benefits">
+    <div class="container">
+      <span class="section-label">Benefits</span>
+      <h2 class="section-title">What are the benefits of Dried Fruits?</h2>
 
+      <div class="benefits-grid">
+        <div class="benefits-card">
+          <p class="benefits-quote">"We extend the life of fresh produce through drying and smart processing"</p>
+            <div class="benefits-avatar">WK</div>
+            <div>
+              <p class="benefits-name">Reduced Food Waste</p>
+            </div>
+          </div>
+
+        <div class="benefits-card">
+          <p class="benefits-quote">"Nutritious options available beyond harvest seasons."</p>
+            <div class="benefits-avatar">WK</div>
+            <div>
+              <p class="benefits-name">Improved Food Access</p>
+            </div>
+          </div>
+
+        <div class="benefits-card">
+          <p class="benefits-quote">"Less prep time, longer storage, easy use."</p>
+            <div class="benefits-avatar">WK</div>
+            <div>
+              <p class="benefits-name">Convenience for Mordern Lifestyles</p>
+            </div>
+          </div>
+
+        <div class="benefits-card">
+          <p class="benefits-quote">"Reliable access to fruits and vegetables year round."</p>
+            <div class="benefits-avatar">WK</div>
+            <div>
+              <p class="benefits-name">Better Nutrition Consistency</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section> 
+   
   <!-- ═══ CTA BANNER ═══ -->
   <section class="cta-banner">
     <div class="container">
@@ -496,7 +580,6 @@
           <h4>Products</h4>
           <a href="products.html#dried-fruits">Dried fruits</a>
           <a href="products.html#dried-veg">Dried vegetables</a>
-          <a href="products.html#local-veg">Local Kenyan veg</a>
           <a href="products.html#fresh">Fresh produce</a>
         </div>
         <div class="footer-col">

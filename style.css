@@ -237,6 +237,10 @@ nav {
 .tag-green  { background: var(--green-light);  color: var(--green-dark); }
 .tag-amber  { background: var(--amber-light);  color: var(--brown); }
 .tag-teal   { background: var(--teal-light);   color: var(--teal); }
+.tag-white  { background: var(--white);   color: var(--green-dark); }
+.tag-cream  { background: var(--cream);   color: var(--brown); }
+.tag-greenpale  { background: var(--green-soft);   color: var(--white); }
+.tag-brown  { background: var(--amber);   color: var(--white); }
 
 /* ─── Section Headings ─── */
 .section-label {
