@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About MyFarmFresh — our story, mission, values, team, and journey from farm to your table." />
+  <title>About Us — MyFarmFresh</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page hero ── */
+    .page-hero {
+      background: linear-gradient(150deg, var(--green-pale) 0%, #e6f5d4 100%);
+      padding: 50px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-hero h1 { margin-bottom: 12px; }
+    .page-hero p  { max-width: 520px; font-size: 1rem; }
+
+    /* ── Story section ── */
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .story-image {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, var(--green-light), #c8e89a);
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    .story-text h2  { margin-bottom: 16px; }
+    .story-text p   { margin-bottom: 14px; }
+
+    /* ── Mission / Values ── */
+    .mission-strip { background: var(--green-dark); padding: 60px 0; }
+    .mission-strip .section-label { color: var(--green-light); }
+    .mission-strip h2 { color: var(--white); margin-bottom: 12px; }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .mission-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .mission-card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .mission-card h3 {
+      color: var(--green-light);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .mission-card p { color: rgba(255,255,255,0.65); font-size: 0.875rem; }
+
+    /* ── Timeline ── */
+    .timeline { padding: 60px 0; background: var(--white); }
+
+    .timeline-list {
+      position: relative;
+      margin-top: 36px;
+    }
+
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--green-light);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 42px; height: 42px;
+      background: var(--white);
+      border: 2px solid var(--green-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--green-soft);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      flex: 1;
+    }
+
+    .timeline-year {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .timeline-content h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+
+    .timeline-content p { font-size: 0.85rem; }
+
+    /* ── Team ── */
+    .team { padding: 60px 0; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+    .team-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 auto 12px;
+    }
+
+    .team-avatar.a1 { background: var(--green-light);  color: var(--green-dark); }
+    .team-avatar.a2 { background: var(--amber-light);  color: var(--brown); }
+    .team-avatar.a3 { background: var(--teal-light);   color: var(--teal); }
+    .team-avatar.a4 { background: #fce8e0; color: #8b3520; }
+
+    .team-card h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--green-dark); margin-bottom: 3px; }
+    .team-card .role { font-size: 0.78rem; color: var(--text-light); margin-bottom: 0; }
+
+    /* ── Certifications ── */
+    .certifications { background: var(--cream); padding: 60px 0; border-top: 1px solid var(--border); }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cert-badge {
+      width: 52px; height: 52px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cert-text h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; color: var(--green-dark); margin-bottom: 3px; }
+    .cert-text p  { font-size: 0.82rem; }
+
+    /* Responsive */
+    @media (min-width: 640px) {
+      .mission-grid { grid-template-columns: repeat(3, 1fr); }
+      .cert-grid    { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (min-width: 768px) {
+      .story-layout { grid-template-columns: 1fr 1fr; }
+      .story-image  { height: 340px; }
+      .team-grid    { grid-template-columns: repeat(4, 1fr); }
+
+      .timeline-list::before { left: 50%; transform: translateX(-50%); }
+      .timeline-item {
+        width: 50%;
+        margin-left: 0;
+      }
+      .timeline-item:nth-child(even) {
+        margin-left: 50%;
+        flex-direction: row-reverse;
+      }
+      .timeline-item:nth-child(even) .timeline-dot { order: 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MyFarm<span>Fresh</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html" class="nav-cta btn">Order now</a></li>
+      </ul>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html" class="active">About us</a>
+      <a href="contact.html">Order / Contact</a>
+    </nav>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Our story</span>
+      <h1>Who we are</h1>
+      <p>A small Kenyan business with a big mission — bringing naturally preserved, nutritious produce to tables across the country.</p>
+    </div>
+  </div>
+
+  <!-- ═══ OUR STORY ═══ -->
+  <section>
+    <div class="container">
+      <div class="story-layout">
+        <div class="story-image">
+          <!-- Replace with: <img src="images/farm-story.jpg" alt="Our farm"> -->
+          Farm story photo
+        </div>
+        <div class="story-text fade-up">
+          <span class="section-label">How it started</span>
+          <h2>Born from the farm</h2>
+          <p>MyFarmFresh began with a simple question: why should fresh, nutritious produce go to waste when there is a way to preserve it naturally, without chemicals, and make it available to everyone?</p>
+          <p>Founded in 2018 in Kiambu County, we started by drying surplus mango and pineapple from a single partner farm. Word spread quickly. Customers loved the taste, the purity, and the fact that they could get top-quality Kenyan-grown produce that lasted.</p>
+          <p>Today we work with a network of over 15 local farms, process four categories of produce, and supply households, retailers, and food businesses across Kenya.</p>
+          <div style="margin-top:20px;">
+            <span class="tag tag-green">15+ partner farms</span>
+            <span class="tag tag-amber">4 product categories</span>
+            <span class="tag tag-teal">Nationwide delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MISSION & VALUES ═══ -->
+  <section class="mission-strip">
+    <div class="container">
+      <span class="section-label">What drives us</span>
+      <h2>Our mission &amp; values</h2>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-card-icon">🌱</div>
+          <h3>Our mission</h3>
+          <p>To make naturally preserved, nutritious Kenyan produce accessible to every household — with full transparency from farm to packet.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-card-icon">🤝</div>
+          <h3>Community first</h3>
+          <p>We pay fair prices to local farmers and work directly with smallholder farms to create sustainable livelihoods in rural communities.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-card-icon">♻️</div>
+          <h3>Sustainability</h3>
+          <p>Solar and air drying reduce our energy footprint. We use minimal, recyclable packaging and work to eliminate food waste at source.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TIMELINE ═══ -->
+  <section class="timeline">
+    <div class="container">
+      <span class="section-label">Our journey</span>
+      <h2>How far we've come</h2>
+
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="timeline-dot">2018</div>
+          <div class="timeline-content">
+            <p class="timeline-year">2018</p>
+            <h4>Founded in Kiambu</h4>
+            <p>Started drying surplus mango and pineapple from one local farm to reduce food waste.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">2019</div>
+          <div class="timeline-content">
+            <p class="timeline-year">2019</p>
+            <h4>Expanded to vegetables</h4>
+            <p>Added dried kale, spinach, and tomatoes after strong demand from health-conscious customers.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">2020</div>
+          <div class="timeline-content">
+            <p class="timeline-year">2020</p>
+            <h4>15 partner farms</h4>
+            <p>Grew our farmer network and introduced traditional Kenyan vegetables — managu, terere, and mrenda.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">2022</div>
+          <div class="timeline-content">
+            <p class="timeline-year">2022</p>
+            <h4>Online presence</h4>
+            <p>Launched our website and WhatsApp ordering, making MyFarmFresh accessible nationwide.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot">2024</div>
+          <div class="timeline-content">
+            <p class="timeline-year">2024</p>
+            <h4>Wholesale &amp; retail</h4>
+            <p>Now supplying supermarkets, health food stores, hotels, and schools across Kenya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEAM ═══ -->
+  <section class="team">
+    <div class="container">
+      <span class="section-label">The people behind it</span>
+      <h2>Meet our team</h2>
+      <p class="section-subtitle">A small, passionate team committed to quality produce and fair farming.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar a1">JM</div>
+          <h4>Jane Mwangi</h4>
+          <p class="role">Founder &amp; CEO</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar a2">KO</div>
+          <h4>Kofi Owusu</h4>
+          <p class="role">Head of Processing</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar a3">AN</div>
+          <h4>Amina Njoroge</h4>
+          <p class="role">Sales &amp; Partnerships</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar a4">DK</div>
+          <h4>David Kamau</h4>
+          <p class="role">Farm Liaison</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS ═══ -->
+  <section class="certifications">
+    <div class="container">
+      <span class="section-label">Trust &amp; quality</span>
+      <h2>Certifications &amp; standards</h2>
+
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-badge">✅</div>
+          <div class="cert-text">
+            <h4>KEBS approved</h4>
+            <p>All products meet Kenya Bureau of Standards food safety requirements.</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge">🌿</div>
+          <div class="cert-text">
+            <h4>No preservatives</h4>
+            <p>100% natural drying — no sulphites, artificial colours, or additives.</p>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge">🏡</div>
+          <div class="cert-text">
+            <h4>Local sourcing</h4>
+            <p>All produce is sourced from verified Kenyan farms within 150km radius.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">MyFarm<span>Fresh</span></p>
+      <p class="footer-tagline">Farm fresh, naturally dried. Kenyan grown.</p>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="products.html#dried-fruits">Dried fruits</a>
+          <a href="products.html#dried-veg">Dried vegetables</a>
+          <a href="products.html#local-veg">Local Kenyan veg</a>
+          <a href="products.html#fresh">Fresh produce</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@myfarmfresh.co.ke</p>
+          <p>+254 700 000 000</p>
+          <p>Mon – Sat, 8am – 6pm</p>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 MyFarmFresh. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms of use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

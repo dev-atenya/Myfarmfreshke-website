@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MyFarmFresh — naturally dried fruits, vegetables, and farm-fresh produce sourced from Kenyan farms." />
+  <title>MyFarmFresh — Farm Fresh, Naturally Dried</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page-specific styles ── */
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--green-pale) 0%, #e8f5d8 60%, var(--amber-light) 100%);
+      padding: 60px 0 50px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(74,140,42,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--green-soft);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--green-soft);
+      border-radius: 50%;
+    }
+
+    .hero h1 { margin-bottom: 18px; }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 440px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+
+    .hero-image {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, var(--green-light), #c8e89a);
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--green-soft);
+      font-weight: 500;
+    }
+
+    /* Value strip */
+    .value-strip { background: var(--white); padding: 36px 0; border-bottom: 1px solid var(--border); }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .value-item { text-align: center; }
+
+    .value-icon {
+      width: 48px; height: 48px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+      font-size: 1.3rem;
+    }
+
+    .value-item h4 { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; color: var(--green-dark); margin-bottom: 4px; }
+    .value-item p  { font-size: 0.78rem; color: var(--text-light); }
+
+    /* Categories */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .cat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+    .cat-img {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--green-soft);
+    }
+
+    .cat-img.fruits   { background: linear-gradient(135deg, var(--amber-light), #ffe5a0); }
+    .cat-img.veg      { background: linear-gradient(135deg, var(--green-light), #c8e89a); }
+    .cat-img.local    { background: linear-gradient(135deg, var(--teal-light), #b8eddf); }
+    .cat-img.fresh    { background: linear-gradient(135deg, #f0fce8, var(--green-light)); }
+
+    .cat-body { padding: 18px 20px; }
+    .cat-body h3 { margin-bottom: 6px; font-size: 1.05rem; }
+    .cat-body p  { font-size: 0.85rem; margin-bottom: 12px; }
+
+    /* Process */
+    .process { background: var(--green-dark); color: var(--white); }
+    .process .section-label { color: var(--green-light); }
+    .process .section-title { color: var(--white); }
+    .process .section-subtitle { color: rgba(255,255,255,0.65); max-width: 460px; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      min-width: 44px; height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--green-light);
+      flex-shrink: 0;
+    }
+
+    .step-text h4 { color: var(--white); font-family: var(--font-body); font-weight: 600; margin-bottom: 4px; }
+    .step-text p  { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+
+    /* Testimonials */
+    .testimonials { background: var(--cream); }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testi-stars { color: var(--amber); font-size: 0.85rem; margin-bottom: 10px; }
+    .testi-quote { font-size: 0.9rem; color: var(--text-mid); font-style: italic; margin-bottom: 14px; line-height: 1.65; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-avatar {
+      width: 36px; height: 36px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      flex-shrink: 0;
+    }
+    .testi-name  { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+    .testi-role  { font-size: 0.75rem; color: var(--text-light); }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green-soft) 0%, var(--teal) 100%);
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .cta-banner h2 { color: var(--white); margin-bottom: 12px; }
+    .cta-banner p  { color: rgba(255,255,255,0.8); margin-bottom: 28px; max-width: 400px; margin-left: auto; margin-right: auto; }
+
+    /* Responsive */
+    @media (min-width: 480px) {
+      .value-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (min-width: 640px) {
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps   { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid      { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero-image { height: 340px; }
+      .categories-grid { grid-template-columns: repeat(4, 1fr); }
+      .process-steps   { grid-template-columns: repeat(4, 1fr); }
+      .testi-grid      { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">MyFarm<span>Fresh</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta btn">Order now</a></li>
+      </ul>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile-menu" id="mobileMenu">
+      <a href="index.html" class="active">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About us</a>
+      <a href="contact.html">Order / Contact</a>
+    </nav>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-content fade-up">
+          <div class="hero-eyebrow">100% Natural · Kenyan Grown</div>
+          <h1>Farm fresh,<br>naturally dried.</h1>
+          <p class="hero-sub">From local Kenyan farms to your table — premium dried fruits, dried vegetables, and fresh produce with no additives, no preservatives.</p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn btn-primary">Explore products</a>
+            <a href="contact.html" class="btn btn-outline">Place an order</a>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="tag tag-green">Dried fruits</span>
+            <span class="tag tag-green">Dried vegetables</span>
+            <span class="tag tag-teal">Local Kenyan veg</span>
+            <span class="tag tag-amber">Fresh on request</span>
+          </div>
+        </div>
+        <div class="hero-image fade-up fade-up-delay-2">
+          <!-- Replace with: <img src="images/hero-produce.jpg" alt="Assorted dried fruits and vegetables"> -->
+          Hero image — assorted dried produce
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALUE STRIP ═══ -->
+  <div class="value-strip">
+    <div class="container">
+      <div class="value-grid">
+        <div class="value-item">
+          <div class="value-icon">🌿</div>
+          <h4>100% Natural</h4>
+          <p>No additives or preservatives</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🌾</div>
+          <h4>Farm sourced</h4>
+          <p>Locally grown Kenyan produce</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">📦</div>
+          <h4>Long shelf life</h4>
+          <p>Up to 12 months when dried</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🚚</div>
+          <h4>Bulk orders</h4>
+          <p>Wholesale pricing available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PRODUCT CATEGORIES ═══ -->
+  <section>
+    <div class="container">
+      <span class="section-label">What we offer</span>
+      <h2 class="section-title">Our product range</h2>
+      <p class="section-subtitle">Four categories of wholesome produce — all naturally processed and carefully packaged.</p>
+
+      <div class="categories-grid">
+        <div class="cat-card">
+          <div class="cat-img fruits">
+            <!-- <img src="images/dried-fruits.jpg" alt="Dried fruits"> -->
+            Dried fruits photo
+          </div>
+          <div class="cat-body">
+            <h3>Dried fruits</h3>
+            <p>Sun-dried mango, pineapple, banana, papaya and more — no added sugar.</p>
+            <a href="products.html#dried-fruits" class="btn btn-outline" style="padding:9px 20px; font-size:0.82rem;">Learn more</a>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-img veg">
+            <!-- <img src="images/dried-veg.jpg" alt="Dried vegetables"> -->
+            Dried vegetables photo
+          </div>
+          <div class="cat-body">
+            <h3>Dried vegetables</h3>
+            <p>Kale, spinach, tomatoes, carrots and more — dried to lock in nutrients.</p>
+            <a href="products.html#dried-veg" class="btn btn-outline" style="padding:9px 20px; font-size:0.82rem;">Learn more</a>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-img local">
+            <!-- <img src="images/local-veg.jpg" alt="Local Kenyan vegetables"> -->
+            Local Kenyan veg photo
+          </div>
+          <div class="cat-body">
+            <h3>Kenyan local veg</h3>
+            <p>Managu, terere, mrenda, saga and other traditional indigenous vegetables.</p>
+            <a href="products.html#local-veg" class="btn btn-outline" style="padding:9px 20px; font-size:0.82rem;">Learn more</a>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-img fresh">
+            <!-- <img src="images/fresh-produce.jpg" alt="Fresh produce"> -->
+            Fresh produce photo
+          </div>
+          <div class="cat-body">
+            <h3>Fresh produce</h3>
+            <p>Fresh fruits and vegetables available on request — seasonal and farm-direct.</p>
+            <a href="products.html#fresh" class="btn btn-outline" style="padding:9px 20px; font-size:0.82rem;">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR PROCESS ═══ -->
+  <section class="process">
+    <div class="container">
+      <span class="section-label">How it works</span>
+      <h2 class="section-title">From farm to your door</h2>
+      <p class="section-subtitle">Every batch follows the same careful four-step journey to ensure quality you can taste.</p>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Harvest</h4>
+            <p>Sourced fresh from our network of local Kenyan farms at peak ripeness.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Clean & sort</h4>
+            <p>Each batch is hand-sorted and washed to remove any substandard produce.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Dry naturally</h4>
+            <p>Low-heat solar or air drying preserves nutrients, flavour, and colour.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <h4>Pack & deliver</h4>
+            <p>Sealed in resealable pouches and delivered to your door or picked up locally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="testimonials">
+    <div class="container">
+      <span class="section-label">Customer love</span>
+      <h2 class="section-title">What people are saying</h2>
+
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"The dried mango is incredible — sweet, chewy, and nothing else. I order monthly for my whole family."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">WK</div>
+            <div>
+              <p class="testi-name">Wanjiru Kamau</p>
+              <p class="testi-role">Regular customer, Nairobi</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"We stock MyFarmFresh in our health food store. Consistent quality, great packaging, and customers keep asking for more."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">MO</div>
+            <div>
+              <p class="testi-name">Michael Odhiambo</p>
+              <p class="testi-role">Retail store owner, Kisumu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-quote">"Finally found dried managu and terere! Tastes just like home. Perfectly packaged and delivered fast."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AN</div>
+            <div>
+              <p class="testi-name">Amina Njeri</p>
+              <p class="testi-role">Customer, Mombasa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to order?</h2>
+      <p>Reach out via WhatsApp or our contact form and we'll get back to you with availability and pricing.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+        <a href="contact.html" class="btn" style="background:var(--white); color:var(--green-dark);">Contact us</a>
+        <a href="https://wa.me/254700000000" class="btn btn-amber">WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">MyFarm<span>Fresh</span></p>
+      <p class="footer-tagline">Farm fresh, naturally dried. Kenyan grown.</p>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="products.html#dried-fruits">Dried fruits</a>
+          <a href="products.html#dried-veg">Dried vegetables</a>
+          <a href="products.html#local-veg">Local Kenyan veg</a>
+          <a href="products.html#fresh">Fresh produce</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@myfarmfresh.co.ke</p>
+          <p>+254 700 000 000</p>
+          <p>Mon – Sat, 8am – 6pm</p>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 MyFarmFresh. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms of use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
