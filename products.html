@@ -201,6 +201,16 @@
   </style>
 </head>
 <body>
+  <!-- ═══ PAGE LOADER ═══ -->
+  <div id="loader">
+  <div class="loader-inner">
+    <p class="loader-logo">MyFarm<span>Fresh</span></p>
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
+    </div>
+  </div>
+</div>
+
 
   <!-- ═══ NAVIGATION ═══ -->
   <nav>
@@ -455,6 +465,13 @@
       });
     });
   </script>
-
+<!-- ═══ LOADER JS ═══ --> 
+<script>
+  window.addEventListener('load', function () {
+    var loader = document.getElementById('loader');
+    loader.classList.add('hidden');
+    setTimeout(function () { loader.remove(); }, 450);
+  });
+</script>
 </body>
 </html>

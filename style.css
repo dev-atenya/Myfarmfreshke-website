@@ -370,6 +370,63 @@ footer {
 .footer-bottom-links a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
 .footer-bottom-links a:hover { color: var(--white); }
 
+/* Loader Page*/
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #f0f8e8;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+  }
+
+  #loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loader-inner {
+    text-align: center;
+  }
+
+  .loader-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    color: #1a3a0e;
+    margin-bottom: 22px;
+    letter-spacing: -0.02em;
+  }
+
+  .loader-logo span {
+    color: #4a8c2a;
+  }
+
+  .loader-bar {
+    width: 160px;
+    height: 3px;
+    background: #d4edba;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .loader-progress {
+    height: 100%;
+    width: 0%;
+    background: #4a8c2a;
+    border-radius: 10px;
+    animation: loadBar 1.2s ease forwards;
+  }
+
+  @keyframes loadBar {
+    to { width: 100%; }
+  }
+
+
+
+
 /* ─── Responsive: Tablet+ ─── */
 @media (min-width: 640px) {
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
