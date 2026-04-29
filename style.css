@@ -423,7 +423,47 @@ footer {
   @keyframes loadBar {
     to { width: 100%; }
   }
+ /* ─── .social-link ─── */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
 
+  .social-link:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  .social-link .fa-brands {
+    font-size: 1rem;
+  }
+
+  .social-link.instagram {
+    background: #fce4d8;
+    color: #c0392b;
+  }
+
+  .social-link.facebook {
+    background: #dde9f7;
+    color: #1a5eb8;
+  }
+
+  .social-link.tiktok {
+    background: #e8f5e9;
+    color: #1a1a1a;
+  }
+
+  .social-link.whatsapp {
+    background: #e4f7e1;
+    color: #128c3e;
+  }
 
 
 
