@@ -68,7 +68,7 @@
 
     .hero-image {
       width: 100%;
-      height: 220px;
+      height: 340px;
       background: linear-gradient(135deg, var(--green-light), #c8e89a);
       border-radius: var(--radius-xl);
       display: flex;
@@ -124,12 +124,15 @@
 
     .cat-img {
       height: 140px;
+      width: 100%;
       display: flex;
+      object-fit: fill;
       align-items: center;
       justify-content: center;
       font-size: 0.8rem;
       font-weight: 500;
       color: var(--green-soft);
+      filter: brightness(0.8)
     }
 
     .cat-img.fruits   { background: linear-gradient(135deg, var(--amber-light), #ffe5a0); }
@@ -186,30 +189,32 @@
     }
 
     .benefits-card {
-      background: var(--white);
+      background-size: cover;
+      background-position: center;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 22px;
       box-shadow: var(--shadow-sm);
     }
+    
 
-    .testi-stars { color: var(--amber); font-size: 0.85rem; margin-bottom: 10px; }
-    .benefits-quote { font-size: 0.9rem; color: var(--text-mid); font-style: italic; margin-bottom: 14px; line-height: 1.65; }
-    .testi-author { display: flex; align-items: center; gap: 10px; }
-    .benefits-avatar {
-      width: 36px; height: 36px;
-      background: var(--green-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--green-dark);
-      flex-shrink: 0;
+    .benefits-card-1 { padding: 22px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/Foodwaste.webp') center/cover;}
+    .benefits-card-2 { padding: 22px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/Foodaccess.webp') center/cover;}
+    .benefits-card-3 { padding: 22px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/Convenient.webp') center/cover;}
+    .benefits-card-4 { padding: 22px; box-shadow: var(--shadow-sm); border: 1px solid var(--border); border-radius: var(--radius-lg); background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/Nutrition.webp') center/cover;}
+
+    .benefits-quote { 
+      font-size: 1.0rem; 
+      color: var(--white); 
+      font-style: italic; 
+      margin-bottom: 14px; 
+      line-height: 1.65; 
+      object-fit: fill;
+      
     }
-    .benefits-name  { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
-    .benefits-role  { font-size: 0.75rem; color: var(--text-light); }
+    
+    .benefits-name  { font-size: 1.25rem; font-weight: 600; color: var(--white); }
+    .benefits-role  { font-size: 0.75rem; color: var(--white); }
 
 
     /*testimonials*/
@@ -276,7 +281,7 @@
         gap: 40px;
         align-items: center;
       }
-      .hero-image { height: 340px; }
+      .hero-image { height: 400px; }
       .categories-grid { grid-template-columns: repeat(3, 1fr); }
       .process-steps   { grid-template-columns: repeat(4, 1fr); }
       .testi-grid      { grid-template-columns: repeat(3, 1fr); }
@@ -323,8 +328,7 @@
     <div class="container">
       <div class="hero-layout">
         <div class="hero-image fade-up fade-up-delay-2">
-          <!-- Replace with: <img src="images/hero-produce.jpg" alt="Assorted dried fruits and vegetables"> -->
-          Hero image — assorted dried produce
+          <img class="hero-image" src="images/assorteddriedproduce.webp" alt="Assorted dried fruits and vegetables">
         </div>
         <div class="hero-content fade-up">
           <div class="hero-eyebrow">100% Natural · Kenyan Grown</div>
@@ -384,8 +388,7 @@
       <div class="categories-grid">
         <div class="cat-card">
           <div class="cat-img fruits">
-            <!-- <img src="images/dried-fruits.jpg" alt="Dried fruits"> -->
-            Dried fruits photo
+            <img class="cat-img" src="images/driedfruits.webp" alt="Dried fruits">
           </div>
           <div class="cat-body">
             <h3>Dried fruits</h3>
@@ -396,8 +399,7 @@
 
         <div class="cat-card">
           <div class="cat-img veg">
-            <!-- <img src="images/dried-veg.jpg" alt="Dried vegetables"> -->
-            Dried vegetables photo
+            <img class="cat-img" src="images/dried-vegetables.webp" alt="Dried vegetables">
           </div>
           <div class="cat-body">
             <h3>Dried vegetables</h3>
@@ -406,22 +408,9 @@
           </div>
         </div>
 
-        <!--<div class="cat-card">
-          <div class="cat-img local">
-            <!- <img src="images/local-veg.jpg" alt="Local Kenyan vegetables"> 
-            Local Kenyan veg photo
-          </div>
-          <div class="cat-body">
-            <h3>Kenyan local veg</h3>
-            <p>Managu, terere, mrenda, saga and other traditional indigenous vegetables.</p>
-            <a href="products.html#local-veg" class="btn btn-outline" style="padding:9px 20px; font-size:0.82rem;">Learn more</a>
-          </div>
-        </div>-->
-
         <div class="cat-card">
           <div class="cat-img fresh">
-            <!-- <img src="images/fresh-produce.jpg" alt="Fresh produce"> -->
-            Fresh produce photo
+            <img class="cat-img" src="images/fresh-amp-colorful-fruits-and-vegetables.webp" alt="Fresh produce">
           </div>
           <div class="cat-body">
             <h3>Fresh produce</h3>
@@ -527,36 +516,36 @@
       <h2 class="section-title">What are the benefits of Dried Fruits?</h2>
 
       <div class="benefits-grid">
-        <div class="benefits-card">
-          <p class="benefits-quote">"We extend the life of fresh produce through drying and smart processing"</p>
-            <div class="benefits-avatar">WK</div>
-            <div>
+        <div class="benefits-card-1">
+           <div>
               <p class="benefits-name">Reduced Food Waste</p>
             </div>
+          <p class="benefits-quote">We extend the life of fresh produce through drying and smart processing</p>
+           
           </div>
 
-        <div class="benefits-card">
-          <p class="benefits-quote">"Nutritious options available beyond harvest seasons."</p>
-            <div class="benefits-avatar">WK</div>
-            <div>
+        <div class="benefits-card-2">
+          <div>
               <p class="benefits-name">Improved Food Access</p>
             </div>
+          <p class="benefits-quote">Nutritious options available beyond harvest seasons.</p>
+            
           </div>
 
-        <div class="benefits-card">
-          <p class="benefits-quote">"Less prep time, longer storage, easy use."</p>
-            <div class="benefits-avatar">WK</div>
-            <div>
+        <div class="benefits-card-3">
+          <div>
               <p class="benefits-name">Convenience for Mordern Lifestyles</p>
             </div>
+          <p class="benefits-quote">"Less prep time, longer storage, easy use."</p>
+            
           </div>
 
-        <div class="benefits-card">
-          <p class="benefits-quote">"Reliable access to fruits and vegetables year round."</p>
-            <div class="benefits-avatar">WK</div>
-            <div>
+        <div class="benefits-card-4">
+          <div>
               <p class="benefits-name">Better Nutrition Consistency</p>
             </div>
+          <p class="benefits-quote">Reliable access to fruits and vegetables year round.</p>
+            
           </div>
       </div>
     </div>
