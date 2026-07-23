@@ -150,6 +150,8 @@
     .process .section-title { color: var(--white); }
     .process .section-subtitle { color: rgba(255,255,255,0.65); max-width: 460px; }
 
+
+
     .process-steps {
       display: grid;
       grid-template-columns: 1fr;
@@ -157,27 +159,59 @@
     }
 
     .process-step {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
       display: flex;
-      gap: 16px;
-      align-items: flex-start;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .process-step:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .step-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 160px;
+    }
+
+    .step-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .step-num {
-      min-width: 44px; height: 44px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      min-width: 38px; height: 38px;
+      background: var(--green-soft);
+      border: 2px solid rgba(255,255,255,0.85);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--green-light);
-      flex-shrink: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      z-index: 2;
     }
 
-    .step-text h4 { color: var(--white); font-family: var(--font-body); font-weight: 600; margin-bottom: 4px; }
-    .step-text p  { color: rgba(255,255,255,0.6); font-size: 0.875rem; }
+    .step-text { padding: 18px 20px 22px; }
+    .step-text h4 { color: var(--white); font-family: var(--font-body); font-weight: 600; margin-bottom: 6px; font-size: 1rem; }
+    .step-text p  { color: rgba(255,255,255,0.65); font-size: 0.875rem; }
+
+    
+
+   
 
     /* BENEFITS */
     .benefits { background: var(--cream); }
@@ -250,7 +284,7 @@
       }
       .hero-image { height: 400px; }
       .categories-grid { grid-template-columns: repeat(3, 1fr); }
-      .process-steps   { grid-template-columns: repeat(4, 1fr); }
+      .process-steps   { grid-template-columns: repeat(3, 1fr); }
       .testi-grid      { grid-template-columns: repeat(3, 1fr); }
       .benefits-grid      { grid-template-columns: repeat(4, 1fr); }
 
@@ -396,33 +430,66 @@
       <h2 class="section-title">From farm to your door</h2>
       <p class="section-subtitle">Every batch follows the same careful four-step journey to ensure quality you can taste.</p>
 
+      
       <div class="process-steps">
         <div class="process-step">
-          <div class="step-num">1</div>
+          <div class="step-img-wrap">
+            <div class="step-num">1</div>
+            <img src="images/Step1.webp" alt="Harvesting fresh produce on a Kenyan farm">
+          </div>
           <div class="step-text">
             <h4>Harvest</h4>
-            <p>Sourced fresh from our network of local Kenyan farms at peak ripeness.</p>
+            <p>Sourced fresh from our network of local Kenyan farms at peak ripeness, so every fruit and vegetable starts at its best.</p>
           </div>
         </div>
         <div class="process-step">
-          <div class="step-num">2</div>
+          <div class="step-img-wrap">
+            <div class="step-num">2</div>
+            <img src="images/Step2.webp" alt="Hand-sorting and washing harvested produce">
+          </div>
           <div class="step-text">
             <h4>Clean & sort</h4>
-            <p>Each batch is hand-sorted and washed to remove any substandard produce.</p>
+            <p>Each batch is hand-sorted and washed to remove any substandard produce before it moves further down the line.</p>
           </div>
         </div>
         <div class="process-step">
-          <div class="step-num">3</div>
+          <div class="step-img-wrap">
+            <div class="step-num">3</div>
+            <img src="images/Step3.webp" alt="Produce drying naturally in the sun">
+          </div>
           <div class="step-text">
             <h4>Dry naturally</h4>
-            <p>Low-heat solar or air drying preserves nutrients, flavour, and colour.</p>
+            <p>Low-heat solar or air drying preserves nutrients, flavour, and colour — with no artificial heat or additives.</p>
           </div>
         </div>
         <div class="process-step">
-          <div class="step-num">4</div>
+          <div class="step-img-wrap">
+            <div class="step-num">4</div>
+            <img src="images/Step4.webp" alt="Quality checking dried produce">
+          </div>
           <div class="step-text">
-            <h4>Pack & deliver</h4>
-            <p>Sealed in resealable pouches and delivered to your door or picked up locally.</p>
+            <h4>Quality check</h4>
+            <p>Every batch is inspected for moisture, colour, and texture, so only produce that meets our standard makes it to packaging.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-img-wrap">
+            <div class="step-num">5</div>
+            <img src="images/Step5.webp" alt="Packing dried produce into resealable pouches">
+          </div>
+          <div class="step-text">
+            <h4>Pack</h4>
+            <p>Sealed in resealable, food-safe pouches that lock in freshness and keep produce shelf-stable for months.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-img-wrap">
+            <div class="step-num">6</div>
+            <img src="images/Step6.webp" alt="Delivering packaged produce to a customer">
+          </div>
+          <div class="step-text">
+            <h4>Deliver</h4>
+            <p>Delivered straight to your door, or ready for pickup locally — fresh from the farm to your kitchen.</p>
           </div>
         </div>
       </div>
@@ -478,7 +545,7 @@
       <p>Reach out via WhatsApp or our contact form and we'll get back to you with availability and pricing.</p>
       <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
         <a href="contact.html" class="btn" style="background:var(--white); color:var(--green-dark);">Contact us</a>
-        <a href="https://wa.me/254729396961" class="btn btn-amber"  target="_blank" rel="noopener noreferrer"class="social-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp us</a>
+        <a href="https://wa.me/254729396961" class="btn btn-amber"  target="_blank" rel="noopener noreferrer"class="social-link">  <i class="fa-brands fa-whatsapp"></i> WhatsApp us</a>
       </div>
     </div>
   </section>
